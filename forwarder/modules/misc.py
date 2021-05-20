@@ -9,7 +9,7 @@ def get_id(update, context):
     message = update.effective_message    # type: Optional[Message]
 
     if message.reply_to_message:  # Message is a reply to another message
-        if message.reply_to_message.forward_from:  # Replied message is a forward from a user
+     if message.reply_to_message.forward_from:  # Replied message is a forward from a user
             sender = message.reply_to_message.forward_from
             forwarder = message.reply_to_message.from_user
             message.reply_text(
@@ -29,8 +29,8 @@ def get_id(update, context):
         else:
             user = message.reply_to_message.from_user  # Replied message is a message from a user
             message.reply_text("{}'s ID is `{}`.".format(user.first_name, user.id), parse_mode=ParseMode.MARKDOWN)
-
-    else:
+            
+     else:
         chat = update.effective_chat
         
         if chat.type == "private":  # Private chat with the bot
@@ -46,4 +46,4 @@ GET_ID_HANDLER = MessageHandler(
     run_async=True,
 )
 
-dispatcher.add_handler(GET_ID_HANDLER)
+dispatcher.add_handler
